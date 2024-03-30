@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import { HeroSection } from "@/components/HeroSection";
 import React from "react";
 
 interface Skill {
@@ -22,17 +22,27 @@ export default async function page() {
   let phone = res.user.about.phoneNumber;
   let skills = res.user.skills;
   let quote = res.user.about.quote;
-  let address = res.user.about.address
+  let mail = res.user.email;
+  let address = res.user.about.address;
   let datas: String[] = [];
   skills.map((skill: Skill) => {
     datas.push(skill.name);
   });
-  console.log(address);
+  console.log(mail);
 
   return (
-    <div className="text-white min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        <Navbar address={address} />
+    <div className="text-white min-h-screen overflow-hidden">
+      <div className="bg-grid-black/[0.2]">
+        <div className="max-w-7xl mx-auto gap-3">
+          <HeroSection
+            name={name}
+            role={role}
+            title={title}
+            address={address}
+            phone={phone}
+            mail={mail}
+          />
+        </div>
       </div>
     </div>
   );
