@@ -178,13 +178,8 @@ export default function Skills({ skills }: SkillProps) {
 
   return (
     <div id="skills" className="max-w-5xl mx-auto px-8">
-      <h1 className="text-7xl -rotate-6">Skills</h1>
+      <h1 className="text-7xl text-center font-bold underline underline-offset-8 mt-[15rem] -rotate-6">Skills</h1>
       <HoverEffect items={items} />
     </div>
   );
 }
-
-{/* <div className="-translate-x-4 flex flex-col">
-          <div className="bg-blue-500"></div>
-          <div className="bg-white"></div>
-      </div> */}
