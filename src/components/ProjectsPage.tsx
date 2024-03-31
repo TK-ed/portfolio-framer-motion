@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { cn } from "@/lib/cn";
 import Link from "next/link";
 import React from "react";
@@ -18,13 +18,19 @@ interface ProductPageProps {
 export default function ProjectsPage({ projects }: any) {
   return (
     <div className="my-16 p-3 sm:p-0">
-      <h1 id="projects" className=" text-center text-7xl underline rotate-6">
+      <motion.h1
+        initial={{ opacity: 0, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
+        id="projects"
+        className=" text-center text-7xl underline rotate-6"
+      >
         Projects
-      </h1>
+      </motion.h1>
       <motion.div
         initial={{ opacity: 0, y: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 1.5, ease: "easeInOut" }}
+        transition={{ delay: 1, duration: 1, ease: "easeInOut" }}
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 pt-10"
       >
         {/* @ts-ignore */}
