@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { IconType } from "react-icons/lib";
-import { RiArrowDropDownLine } from "react-icons/ri";
 
 export const HoverEffect = ({
   items,
@@ -60,11 +59,6 @@ export const HoverEffect = ({
           </Link>
         );
       })}
-      <a href="#projects">
-        <button className="ml-16 mt-10 animate-bounce">
-          <RiArrowDropDownLine size={60} />
-        </button>
-      </a>
     </div>
   );
 };
