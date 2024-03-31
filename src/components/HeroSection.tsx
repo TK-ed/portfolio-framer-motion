@@ -119,7 +119,7 @@ export function HeroSection({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1.2, ease: "easeInOut" }}
         >
-          <a href="#about">
+          <a href="#skills">
             <button className="mt-10 animate-bounce">
               <RiArrowDropDownLine size={60} />
             </button>

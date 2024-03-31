@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/HeroSection";
+import Skills from "@/components/Skills";
 import React from "react";
 
 interface Skill {
@@ -28,12 +29,12 @@ export default async function page() {
   skills.map((skill: Skill) => {
     datas.push(skill.name);
   });
-  console.log(mail);
+  // console.log(mail);
 
   return (
-    <div className="text-white min-h-screen overflow-hidden">
+    <div className="text-white min-h-[400vh] overflow-hidden">
       <div className="bg-grid-black/[0.2]">
-        <div className="max-w-7xl mx-auto gap-3">
+        <div className="max-w-7xl mx-auto space-y-5">
           <HeroSection
             name={name}
             role={role}
@@ -42,6 +43,7 @@ export default async function page() {
             phone={phone}
             mail={mail}
           />
+          <Skills skills={datas} />
         </div>
       </div>
     </div>
