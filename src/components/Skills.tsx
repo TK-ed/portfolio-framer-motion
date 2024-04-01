@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { HoverEffect } from "./ui/card-hover";
+import { motion } from "framer-motion";
 import {
   SiReact,
   SiNextdotjs,
@@ -27,6 +28,7 @@ import {
   SiRedux,
   SiSass,
 } from "react-icons/si";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 interface SkillProps {
   skills: String[];
@@ -177,14 +179,28 @@ export default function Skills({ skills }: SkillProps) {
   ];
 
   return (
-    <div id="skills" className="max-w-5xl mx-auto px-8">
-      <h1 className="text-7xl -rotate-6">Skills</h1>
-      <HoverEffect items={items} />
+    <div id="skills" className="max-w-5xl mx-auto mt-[20rem] px-8">
+      <motion.h1
+        className="text-7xl text-center font-bold underline decoration-green-400  underline-offset-8 mt-[15rem] -rotate-6"
+        initial={{ opacity: 0, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
+      >
+        Skills
+      {/* <div className="bg-red-400 w-full h-2"></div> */}
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 1, ease: "easeInOut" }}
+      >
+        <HoverEffect items={items} />
+      </motion.div>
+      <a href="#projects">
+        <button className="flex mx-auto animate-bounce">
+          <RiArrowDropDownLine size={60} />
+        </button>
+      </a>
     </div>
   );
 }
-
-{/* <div className="-translate-x-4 flex flex-col">
-          <div className="bg-blue-500"></div>
-          <div className="bg-white"></div>
-      </div> */}

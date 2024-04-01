@@ -1,12 +1,33 @@
 import { HeroSection } from "@/components/HeroSection";
+import ProjectsPage from "@/components/ProjectsPage";
 import Skills from "@/components/Skills";
+import Testimonials from "@/components/ui/Testimonials";
 import React from "react";
 
-interface Skill {
-  name: String; // Assuming your objects have an "x" property
-  exp: number; // Assuming your objects have an "x" property
-  // (and potentially other properties)
-  // ...other properties if needed
+interface ProjectProps {
+  title: String;
+  description: String;
+  liveurl: String;
+  githuburl: String;
+  cover: String;
+  techStack: String[];
+  enabled?: boolean;
+  image: {
+    public_id: String;
+    url: String;
+  };
+}
+
+interface SkillsProps {
+  name: String;
+  enabled?: boolean;
+}
+
+interface TestimonialsProps {
+  name: String;
+  review: String;
+  position: String;
+  enabled?: boolean;
 }
 
 export default async function page() {
@@ -25,16 +46,40 @@ export default async function page() {
   let quote = res.user.about.quote;
   let mail = res.user.email;
   let address = res.user.about.address;
+  let project = res.user.projects;
+  let testimonial = res.user.testimonials;
+  let testimonials: Object[] = [];
   let datas: String[] = [];
-  skills.map((skill: Skill) => {
+  let projects: Object[] = [];
+  skills.map((skill: SkillsProps) => {
+    if (!project.enabled) return;
     datas.push(skill.name);
   });
-  // console.log(mail);
+  project.map((project: ProjectProps) => {
+    if (!project.enabled) return;
+    projects.push({
+      title: project.title,
+      desc: project.description,
+      link: project.liveurl,
+      git: project.githuburl,
+      cover: project.image.url,
+      tech: project.techStack,
+    });
+  });
+  testimonial.map((data: TestimonialsProps) => {
+    if (!data.enabled) return;
+    testimonials.push({
+      name: data.name,
+      quote: data.review,
+      title: data.position,
+    });
+  });
+  // console.log(testimonials);
 
   return (
-    <div className="text-white min-h-[400vh] overflow-hidden">
+    <div className="text-white min-h-screen gap-16 overflow-hidden">
       <div className="bg-grid-black/[0.2]">
-        <div className="max-w-7xl mx-auto space-y-5">
+        <div className="max-w-7xl mx-auto">
           <HeroSection
             name={name}
             role={role}
@@ -44,6 +89,8 @@ export default async function page() {
             mail={mail}
           />
           <Skills skills={datas} />
+          <ProjectsPage projects={projects} />
+          <Testimonials testimonials={testimonials} />
         </div>
       </div>
     </div>
