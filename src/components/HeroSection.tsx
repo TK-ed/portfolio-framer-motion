@@ -33,9 +33,9 @@ export function HeroSection({
           initial={{ opacity: 0, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 1, ease: "easeInOut" }}
-          className="text-4xl md:text-7xl mt-8 font-bold text-center  from-neutral-50 to-neutral-400 bg-opacity-50"
+          className="text-4xl md:text-7xl mt-8 font-bold text-center from-neutral-50 to-neutral-400 bg-opacity-50"
         >
-          {name} <br /> {role}
+          {name} <br /> <span className="text-green-400">{role}</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 150 }}

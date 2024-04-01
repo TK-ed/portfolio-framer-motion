@@ -1,7 +1,34 @@
 import { HeroSection } from "@/components/HeroSection";
 import ProjectsPage from "@/components/ProjectsPage";
 import Skills from "@/components/Skills";
+import Testimonials from "@/components/ui/Testimonials";
 import React from "react";
+
+interface ProjectProps {
+  title: String;
+  description: String;
+  liveurl: String;
+  githuburl: String;
+  cover: String;
+  techStack: String[];
+  enabled?: boolean;
+  image: {
+    public_id: String;
+    url: String;
+  };
+}
+
+interface SkillsProps {
+  name: String;
+  enabled?: boolean;
+}
+
+interface TestimonialsProps {
+  name: String;
+  review: String;
+  position: String;
+  enabled?: boolean;
+}
 
 export default async function page() {
   const data = await fetch(
@@ -20,14 +47,17 @@ export default async function page() {
   let mail = res.user.email;
   let address = res.user.about.address;
   let project = res.user.projects;
+  let testimonial = res.user.testimonials;
+  let testimonials: Object[] = [];
   let datas: String[] = [];
   let projects: Object[] = [];
-  skills.map((skill: any) => {
+  skills.map((skill: SkillsProps) => {
+    if (!project.enabled) return;
     datas.push(skill.name);
   });
-  project.map((project: any) => {
+  project.map((project: ProjectProps) => {
+    if (!project.enabled) return;
     projects.push({
-      // @ts-ignore
       title: project.title,
       desc: project.description,
       link: project.liveurl,
@@ -36,7 +66,15 @@ export default async function page() {
       tech: project.techStack,
     });
   });
-  // console.log(projects);
+  testimonial.map((data: TestimonialsProps) => {
+    if (!data.enabled) return;
+    testimonials.push({
+      name: data.name,
+      quote: data.review,
+      title: data.position,
+    });
+  });
+  // console.log(testimonials);
 
   return (
     <div className="text-white min-h-screen gap-16 overflow-hidden">
@@ -51,8 +89,8 @@ export default async function page() {
             mail={mail}
           />
           <Skills skills={datas} />
-          <Skills skills={datas} />
           <ProjectsPage projects={projects} />
+          <Testimonials testimonials={testimonials} />
         </div>
       </div>
     </div>

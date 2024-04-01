@@ -181,12 +181,13 @@ export default function Skills({ skills }: SkillProps) {
   return (
     <div id="skills" className="max-w-5xl mx-auto mt-[20rem] px-8">
       <motion.h1
-        className="text-7xl text-center font-bold underline underline-offset-8 mt-[15rem] -rotate-6"
+        className="text-7xl text-center font-bold underline decoration-green-400  underline-offset-8 mt-[15rem] -rotate-6"
         initial={{ opacity: 0, y: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
       >
         Skills
+      {/* <div className="bg-red-400 w-full h-2"></div> */}
       </motion.h1>
       <motion.div
         initial={{ opacity: 0, y: 0 }}
