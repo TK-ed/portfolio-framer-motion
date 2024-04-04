@@ -4,7 +4,7 @@ services:
   web:
     build: .
     env_file:
-      - ./.env.local
+      - ./.env
     container_name: app
     command: npm run dev
     ports:

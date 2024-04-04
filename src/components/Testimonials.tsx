@@ -1,11 +1,9 @@
 "use client";
-import { InfiniteMovingCards } from "./infinite-moving-cards";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 import { motion } from "framer-motion";
 
 export default function Testimonials({ testimonials }: any) {
-  const testimonialsText =
-    'Testimonials are the best way to prove that your products work. They help potential buyers feel more <span className="underline-offset-2 text-green-400">confident</span> in their purchase decision. - Neil Patel';
-
   return (
     <div id="testimonials" className="my-16">
       <motion.h1
@@ -17,8 +15,10 @@ export default function Testimonials({ testimonials }: any) {
       >
         &quot;Testimonials are the best way to prove that your products work.
         They help potential buyers feel more{" "}
-        <span className="underline-offset-auto decoration-green-400 text-green-400">confident</span> in
-        their purchase decision.&quot; - Neil Patel
+        <span className="underline-offset-8 underline decoration-green-400 text-green-400 font-semibold">
+          confident
+        </span>{" "}
+        in their purchase decision.&quot; - Neil Patel
       </motion.h1>
       <motion.div
         className="my-[6rem]"
@@ -32,6 +32,11 @@ export default function Testimonials({ testimonials }: any) {
           speed="slow"
         />
       </motion.div>
+      <a href="#contact">
+        <button className="flex mx-auto animate-bounce">
+          <RiArrowDropDownLine size={60} />
+        </button>
+      </a>
     </div>
   );
 }

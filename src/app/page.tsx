@@ -1,7 +1,8 @@
+import { ContactForm } from "@/components/contact-form";
 import { HeroSection } from "@/components/HeroSection";
 import ProjectsPage from "@/components/ProjectsPage";
 import Skills from "@/components/Skills";
-import Testimonials from "@/components/ui/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import React from "react";
 
 interface ProjectProps {
@@ -16,6 +17,11 @@ interface ProjectProps {
     public_id: String;
     url: String;
   };
+}
+
+interface SocialProps {
+  platform: string;
+  enabled?: string;
 }
 
 interface SkillsProps {
@@ -48,9 +54,15 @@ export default async function page() {
   let address = res.user.about.address;
   let project = res.user.projects;
   let testimonial = res.user.testimonials;
+  let social_handles = res.user.social_handles;
   let testimonials: Object[] = [];
   let datas: String[] = [];
   let projects: Object[] = [];
+  let socials: string[] = [];
+  social_handles.forEach((element: SocialProps) => {
+    if (!element.enabled) return;
+    socials.push(element.platform);
+  });
   skills.map((skill: SkillsProps) => {
     if (!project.enabled) return;
     datas.push(skill.name);
@@ -74,7 +86,7 @@ export default async function page() {
       title: data.position,
     });
   });
-  // console.log(testimonials);
+  // console.log(socials);
 
   return (
     <div className="text-white min-h-screen gap-16 overflow-hidden">
@@ -91,6 +103,7 @@ export default async function page() {
           <Skills skills={datas} />
           <ProjectsPage projects={projects} />
           <Testimonials testimonials={testimonials} />
+          <ContactForm socials={socials} />
         </div>
       </div>
     </div>
