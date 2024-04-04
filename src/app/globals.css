@@ -6,6 +6,7 @@ body {
   @apply text-slate-300 bg-black/[0.96];
 }
 
-*{
-  scroll-behavior: smooth;
+*,
+html {
+  scroll-behavior: smooth !important;
 }

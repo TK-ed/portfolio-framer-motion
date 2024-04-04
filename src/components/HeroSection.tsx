@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Spotlight } from "./ui/spotllight";
 import Link from "next/link";
 import { RiArrowDropDownLine } from "react-icons/ri";
@@ -24,10 +24,16 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <div className="h-[40rem] w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="white"
-      />
+      <motion.div
+        initial={{ opacity: 0, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7, duration: 0.5, ease: "easeInOut" }}
+      >
+        <Spotlight
+          className="-top-40 left-0 md:left-60 md:-top-20"
+          fill="white"
+        />
+      </motion.div>
       <div className=" p-4 max-w-7xl mx-auto relative z-10  w-full pt-20 md:pt-0">
         <motion.h1
           initial={{ opacity: 0, y: 0 }}

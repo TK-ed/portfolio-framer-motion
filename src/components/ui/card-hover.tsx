@@ -53,7 +53,7 @@ export const HoverEffect = ({
             <div className="rounded-md w-full relative z-20 p-4 bg-black transition-all group-hover:ring-2 ring-green-500 cursor-pointer">
               <div className="space-y-5 relative z-5 py-5">
                 <Icon className="w-5 h-5 mx-auto" />
-                <p className="text-2xl text-center">{item.title}</p>
+                <h1 className="text-2xl text-center">{item.title}</h1>
               </div>
             </div>
           </Link>

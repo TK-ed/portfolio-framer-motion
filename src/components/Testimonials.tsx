@@ -1,11 +1,17 @@
 "use client";
-import { InfiniteMovingCards } from "./infinite-moving-cards";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 import { motion } from "framer-motion";
 
-export default function Testimonials({ testimonials }: any) {
-  const testimonialsText =
-    'Testimonials are the best way to prove that your products work. They help potential buyers feel more <span className="underline-offset-2 text-green-400">confident</span> in their purchase decision. - Neil Patel';
-
+export default function Testimonials({
+  testimonials,
+}: {
+  testimonials: {
+    quote: string;
+    name: string;
+    title: string;
+  }[];
+}) {
   return (
     <div id="testimonials" className="my-16">
       <motion.h1
@@ -13,12 +19,14 @@ export default function Testimonials({ testimonials }: any) {
         whileInView={{ opacity: 1, x: 0 }}
         animate={{ opacity: 0, x: 1 }}
         transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
-        className="text-7xl "
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-7xl  mx-4"
       >
         &quot;Testimonials are the best way to prove that your products work.
         They help potential buyers feel more{" "}
-        <span className="underline-offset-auto decoration-green-400 text-green-400">confident</span> in
-        their purchase decision.&quot; - Neil Patel
+        <span className="underline-offset-8 underline decoration-green-400 text-green-400 font-semibold">
+          confident
+        </span>{" "}
+        in their purchase decision.&quot; - Neil Patel
       </motion.h1>
       <motion.div
         className="my-[6rem]"
@@ -32,6 +40,11 @@ export default function Testimonials({ testimonials }: any) {
           speed="slow"
         />
       </motion.div>
+      <a href="#contact">
+        <button className="flex mx-auto animate-bounce">
+          <RiArrowDropDownLine size={60} />
+        </button>
+      </a>
     </div>
   );
 }
