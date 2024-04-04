@@ -3,7 +3,15 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 import { motion } from "framer-motion";
 
-export default function Testimonials({ testimonials }: any) {
+export default function Testimonials({
+  testimonials,
+}: {
+  testimonials: {
+    quote: string;
+    name: string;
+    title: string;
+  }[];
+}) {
   return (
     <div id="testimonials" className="my-16">
       <motion.h1
@@ -11,7 +19,7 @@ export default function Testimonials({ testimonials }: any) {
         whileInView={{ opacity: 1, x: 0 }}
         animate={{ opacity: 0, x: 1 }}
         transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
-        className="text-7xl "
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-7xl  mx-4"
       >
         &quot;Testimonials are the best way to prove that your products work.
         They help potential buyers feel more{" "}

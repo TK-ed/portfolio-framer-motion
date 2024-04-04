@@ -4,36 +4,20 @@ import ProjectsPage from "@/components/ProjectsPage";
 import Skills from "@/components/Skills";
 import Testimonials from "@/components/Testimonials";
 import React from "react";
+import { Project, Skill, Socials, Testimonial } from "@/interface";
 
-interface ProjectProps {
-  title: String;
-  description: String;
-  liveurl: String;
-  githuburl: String;
-  cover: String;
-  techStack: String[];
-  enabled?: boolean;
-  image: {
-    public_id: String;
-    url: String;
-  };
+interface ProjectType {
+  title: string;
+  desc: string;
+  tech: string[];
+  link: string;
+  cover: string;
 }
 
-interface SocialProps {
-  platform: string;
-  enabled?: string;
-}
-
-interface SkillsProps {
-  name: String;
-  enabled?: boolean;
-}
-
-interface TestimonialsProps {
-  name: String;
-  review: String;
-  position: String;
-  enabled?: boolean;
+interface TestimonialType {
+  name: string;
+  quote: string;
+  title: string;
 }
 
 export default async function page() {
@@ -45,40 +29,36 @@ export default async function page() {
   let name = res.user.about.name;
   let role = res.user.about.title;
   let title = res.user.about.subTitle;
-  let img = res.user.about.avatar.url;
-  let desc = res.user.about.description;
   let phone = res.user.about.phoneNumber;
   let skills = res.user.skills;
-  let quote = res.user.about.quote;
   let mail = res.user.email;
   let address = res.user.about.address;
   let project = res.user.projects;
   let testimonial = res.user.testimonials;
   let social_handles = res.user.social_handles;
-  let testimonials: Object[] = [];
-  let datas: String[] = [];
-  let projects: Object[] = [];
+  let testimonials: TestimonialType[] = [];
+  let datas: string[] = [];
+  let projects: ProjectType[] = [];
   let socials: string[] = [];
-  social_handles.forEach((element: SocialProps) => {
+  social_handles.filter((element: Socials) => {
     if (!element.enabled) return;
     socials.push(element.platform);
   });
-  skills.map((skill: SkillsProps) => {
+  skills.filter((skill: Skill) => {
     if (!project.enabled) return;
     datas.push(skill.name);
   });
-  project.map((project: ProjectProps) => {
+  project.filter((project: Project) => {
     if (!project.enabled) return;
     projects.push({
       title: project.title,
       desc: project.description,
       link: project.liveurl,
-      git: project.githuburl,
       cover: project.image.url,
       tech: project.techStack,
     });
   });
-  testimonial.map((data: TestimonialsProps) => {
+  testimonial.filter((data: Testimonial) => {
     if (!data.enabled) return;
     testimonials.push({
       name: data.name,
@@ -86,10 +66,11 @@ export default async function page() {
       title: data.position,
     });
   });
-  // console.log(socials);
+
+  // console.log(projects);
 
   return (
-    <div className="text-white min-h-screen gap-16 overflow-hidden">
+    <main className="text-white min-h-screen gap-16 overflow-hidden">
       <div className="bg-grid-black/[0.2]">
         <div className="max-w-7xl mx-auto">
           <HeroSection
@@ -100,12 +81,12 @@ export default async function page() {
             phone={phone}
             mail={mail}
           />
-          <Skills skills={datas} />
+          <Skills />
           <ProjectsPage projects={projects} />
           <Testimonials testimonials={testimonials} />
           <ContactForm socials={socials} />
         </div>
       </div>
-    </div>
+    </main>
   );
 }

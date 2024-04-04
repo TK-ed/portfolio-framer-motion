@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/utils/cn";
+import { motion } from "framer-motion";
 import {
   IconBrandFacebookFilled,
   IconBrandInstagram,
@@ -33,10 +34,17 @@ export function ContactForm({ socials }: any) {
   };
 
   return (
-    <div
+    <motion.div
       id="contact"
-      className="max-w-md my-16 w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black"
+      initial={{ opacity: 0, x: -300 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 0, x: 1 }}
+      transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
+      className="max-w-md my-[5rem] w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black"
     >
+      <h1 className=" text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl text-center font-bold underline decoration-green-400 underline-offset-8 my-8 -rotate-6">
+        Contact me!!
+      </h1>
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Wanna Contact me??
       </h2>
@@ -151,7 +159,7 @@ export function ContactForm({ socials }: any) {
           </a>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 }
 
