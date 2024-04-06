@@ -21,8 +21,8 @@ export default function ProjectsPage({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 0 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
       className="my-16 p-3 sm:p-0"
     >
@@ -33,7 +33,7 @@ export default function ProjectsPage({
         Projects
       </h1>
       <motion.div
-        initial={{ opacity: 0, y: 0 }}
+        initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 1, ease: "easeInOut" }}
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 pt-10"
@@ -58,7 +58,7 @@ export default function ProjectsPage({
         ))}
       </motion.div>
       <div>
-        <a href="#testimonials">
+        <a href="#services">
           <button className="mt-8 flex mx-auto animate-bounce">
             <RiArrowDropDownLine size={60} />
           </button>
