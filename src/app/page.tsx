@@ -133,7 +133,7 @@ export default async function page() {
             mail={mail}
           />
           <Skills />
-          {/* <Timeline timeline={timelines} /> */}
+          <Timeline timeline={timelines} />
           <ProjectsPage projects={projects} />
           <Services services={services} />
           <Testimonials testimonials={testimonials} />
