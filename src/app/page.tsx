@@ -120,8 +120,6 @@ export default async function page() {
     });
   });
 
-  // console.log(timelines)
-
   return (
     <main className="text-white min-h-screen gap-16 overflow-hidden">
       <div className="bg-grid-black/[0.2]">
@@ -135,7 +133,7 @@ export default async function page() {
             mail={mail}
           />
           <Skills />
-          <Timeline timeline={timelines} />
+          {/* <Timeline timeline={timelines} /> */}
           <ProjectsPage projects={projects} />
           <Services services={services} />
           <Testimonials testimonials={testimonials} />

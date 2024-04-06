@@ -3,7 +3,6 @@
 import { Chrono } from "react-chrono";
 import { format, parseISO } from "date-fns";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { IoIosGitNetwork } from "react-icons/io";
 import { FaComputer } from "react-icons/fa6";
 import { MdAssuredWorkload } from "react-icons/md";
@@ -30,7 +29,6 @@ const Timeline = ({
     cardTitle: `${item.company}`,
     cardSubtitle: `${item.summary}`,
     url: item.location,
-    // cardDetailedText: `${item.company}`,
   }));
 
   console.log(chronoItems);
