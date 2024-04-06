@@ -1,8 +1,6 @@
-import dynamic from "next/dynamic";
+"use client";
 
-const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
+import AnimatedCursor from "react-animated-cursor";
 
 export default function Cursor() {
   return <AnimatedCursor />;

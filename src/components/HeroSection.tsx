@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Spotlight } from "./ui/spotllight";
 import Link from "next/link";
 import { RiArrowDropDownLine } from "react-icons/ri";

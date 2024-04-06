@@ -47,3 +47,26 @@ export interface Testimonial {
   enabled?: boolean;
   _id: string;
 }
+
+export interface Service {
+  name: string;
+  charge: number;
+  _id: string;
+  desc: string;
+  enabled: boolean;
+  image: {
+    public_id: string;
+    url: string;
+  };
+}
+
+export interface Experience {
+  company_name: string;
+  summary: string;
+  sequence: number;
+  startDate: string;
+  endDate: string;
+  job_title: string;
+  job_location: string;
+  enabled?: boolean;
+}

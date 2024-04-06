@@ -137,7 +137,7 @@ export default function Skills() {
       id="skills"
       className="max-w-5xl mx-auto mt-[18rem] px-8"
     >
-      <h1 className="text-7xl text-center font-bold underline decoration-green-400 underline-offset-8 mt-[15rem] -rotate-6">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-xl:text-8xl text-center font-bold underline decoration-green-400 underline-offset-8 mt-[15rem] -rotate-6">
         Skills
       </h1>
       <motion.div
@@ -147,7 +147,7 @@ export default function Skills() {
       >
         <HoverEffect items={items} />
       </motion.div>
-      <a href="#projects">
+      <a href="#exp">
         <button className="flex mx-auto animate-bounce">
           <RiArrowDropDownLine size={60} />
         </button>

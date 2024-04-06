@@ -11,26 +11,9 @@ import {
   IconBrandTwitter,
 } from "@tabler/icons-react";
 
-interface SocialProps {
-  platform: string;
-  url: string;
-}
-
-export function ContactForm({ socials }: any) {
-  const [name, setName] = useState("");
-  const [last, setLast] = useState("");
-  const [text, setText] = useState("");
-  const [email, setEmail] = useState("");
-
+export function ContactForm({ socials }: { socials: string[] }) {
   const emailMe = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const author: string = name + last;
-    const content: string = text;
-    const mail: string = email;
-    setName("");
-    setLast("");
-    setText("");
-    setEmail("");
   };
 
   return (
@@ -57,46 +40,28 @@ export function ContactForm({ socials }: any) {
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
-            <Input
-              id="firstname"
-              value={name}
-              placeholder="John"
-              type="text"
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
+            <Input id="firstname" placeholder="John" type="text" required />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
-            <Input
-              id="lastname"
-              placeholder="Doe"
-              type="text"
-              value={last}
-              onChange={(e) => setLast(e.target.value)}
-              required
-            />
+            <Input id="lastname" placeholder="Doe" type="text" required />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
           <Input
-            value={email}
             id="email"
             placeholder="portfolio3@gmail.com"
             type="email"
             required
-            onChange={(e) => setEmail(e.target.value)}
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="message">The message??</Label>
           <Input
-            value={text}
             id="text"
             placeholder="Hey there! I am interested in your work!"
             type="text"
-            onChange={(e) => setText(e.target.value)}
             required
           />
         </LabelInputContainer>

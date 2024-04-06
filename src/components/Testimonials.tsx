@@ -2,6 +2,7 @@
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 import { motion } from "framer-motion";
+import { ToolTip } from "./tooltip";
 
 export default function Testimonials({
   testimonials,
@@ -13,7 +14,7 @@ export default function Testimonials({
   }[];
 }) {
   return (
-    <div id="testimonials" className="my-16">
+    <div id="testimonials" className="my-16 space-y-8">
       <motion.h1
         initial={{ opacity: 0, x: -200 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -28,6 +29,15 @@ export default function Testimonials({
         </span>{" "}
         in their purchase decision.&quot; - Neil Patel
       </motion.h1>
+      <motion.div
+        initial={{ opacity: 0, x: 0, y: 25 }}
+        whileInView={{ opacity: 1 }}
+        animate={{ opacity: 0, x: 1 }}
+        transition={{ delay: 0.9, duration: 1, ease: "easeInOut" }}
+      >
+        {/* @ts-ignore */}
+        <ToolTip items={testimonials} />
+      </motion.div>
       <motion.div
         className="my-[6rem]"
         initial={{ opacity: 0, y: 0 }}
